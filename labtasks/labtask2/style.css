@@ -1,0 +1,50 @@
+body {
+    background: #f8f9fa;
+  }
+
+  .ContainerCard {
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 5%;
+  }
+
+  .form-control:focus {
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    border-color: #007bff;
+  }
+
+  .form-label {
+    font-weight: 500;
+  }
+
+  .MainText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .checkout-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 2rem;
+  }
+
+  .submit-btn {
+    background-color: #007bff;
+    border: none;
+  }
+
+  .submit-btn:hover {
+    background-color: #0056b3;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+
+  .is-invalid {
+    border-color: red;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+  }
