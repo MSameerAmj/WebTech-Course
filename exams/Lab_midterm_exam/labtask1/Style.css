@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quattrocento:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: "Inter", serif;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 90px;
+    padding: 20px 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background:rgba(255, 255, 255, 0);
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+}
+.navbar:hover{
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.nav-left{
+    list-style: none;
+    margin-left: -25px;
+    width: 200px;
+    flex-wrap: wrap;
+}
+
+.nav-left li a{
+    text-decoration: none;
+    color: black;
+    font-size: 13px;
+    transition: text-decoration 0.3s ease-in-out;
+}
+.nav-left li a:hover{
+    text-decoration: underline;
+    text-underline-offset: 10px;
+}
+
+
+
+.logo{
+    font-family: "Quattrocento", serif;
+    font-weight: 500;
+    font-size: 30px;
+    text-align: center;
+}
+.nav-right{
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin-right: -20px;
+}
+
+.nav-right i{
+    font-size: 13px;
+}
+
+
+
+.BackgroundContainer{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    /* border: 5px solid blue; */
+} 
+
+.Hero-Bg-Video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} 
+
+.BackgroundContainer h1{
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.BackgroundContainer ul{
+    display: flex;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 20px;
+    font-size: 13px;
+}
+.BackgroundContainer ul a{
+    color: black;
+    text-underline-offset: 10px;
+}
+
+/* .NewProducts-Container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    
+    /* border: 5px solid red; */
+
+.NewProducts-Container{
+    
+    justify-content: center;
+}
+
+.newinc{
+        overflow-x: hidden;
+}
+
+.NewIn {
+    padding: 0px;
+    margin: 0px;
+     
+}
+
+
+.NewIn-Img{
+    position: relative;
+    /* border: 5px solid blue; */
+    width: 100%;
+    margin: 0px;
+}
+
+.New-In-Text{
+    margin: 50px;
+    position: sticky;
+    bottom: 20%;
+    font-size: 101px;
+}
+.New-In-Text h1{
+    font-weight: 500;
+}
+
+/* .New-In-Text.visible{
+    transform: translateY(0);
+} */
+
+
+.Products-Showcase{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-template-rows: repeat(2, auto); /* 2 rows */
+    gap: 3px;
+    /* border: 5px solid red; */
+
+}
+.product{
+    position: relative;
+    width: 100%;
+    /* border: 5px solid red; */
+    /* border: 5px solid orange; */
+    
+}
+
+.slider {
+    position: relative;
+    display: flex;
+    grid-template-columns: repeat(3, 100%);
+    height: fit-content;
+    width: 100%;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Enables snap effect */
+    scroll-behavior: smooth;
+}
+
+.slider .ProductImg {
+    width: 100%;
+    /* object-fit: cover; */
+    scroll-snap-align: start;
+}
+
+.slider::-webkit-scrollbar{
+    height: 3px;
+}
+.slider::-webkit-scrollbar-thumb{
+    background: gray;
+}
+.slider::-webkit-scrollbar-track {
+    background: transparent; /* Hides default track */
+}
+
+.product-description{
+    padding: 10px;
+    height: fit-content;
+    position: relative;
+    /* border: 5px solid blue; */
+}
+
+.product-title{
+    margin-bottom: 5px;
+    font-size: 13px;
+    font-weight: 500;
+}
+.product-price{
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.about-company{
+    margin-top: 120px;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 120px;
+    font-size: 15px;
+    
+} 
+
+.company-name{
+    background-color: black;
+}
+.company-name h1{
+    font-size: 110px;
+    font-family: "Quattrocento", serif;
+    color: white;
+    text-align: center;
+}
+.about-text{
+    font-size: 12px;
+    color: rgb(87, 87, 87);
+}
+
+@media screen and (max-width: 990px) {
+    .about-company{
+        margin-top: 100px;
+        margin-left: 100px;
+        margin-right: 100px;
+        margin-bottom: 180px;  
+        
+    } 
+    .company-name h1{
+        font-size: 70px;
+        font-family: "Quattrocento", serif;
+        color: white;
+        text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 608px) {
+    .about-company{
+        margin-top: 100px;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-bottom: 180px;  
+        
+    } 
+    .company-name h1{
+        font-size: 55px;
+        font-family: "Quattrocento", serif;
+        color: white;
+        text-align: center;
+    }
+  }
