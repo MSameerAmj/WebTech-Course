@@ -1,0 +1,23 @@
+<body>
+  <div class="profile-container">
+    <div class="sidebar">
+      <ul>
+        <li><a href="/auth/profile" class="<%= page === 'profile' ? 'active' : '' %>">My Account</a></li>
+        <li><a href="/auth/my-orders" class="<%= page === 'orders' ? 'active' : '' %>">My Orders</a></li>
+        <li><a href="/auth/contact-us" class="<%= page === 'contact' ? 'active' : '' %>">Contact Us</a></li>
+        <li><a href="/auth/my-complaints" class="<%= page === 'My-complaints' ? 'active' : '' %>">My complaints</a></li>
+        <li><form action="/auth/logout" method="GET"><button type="submit" class="logout-btn">Logout</button></form></li>
+      </ul>
+    </div>
+    <% if (page === 'profile') { %>
+    <%- include("./partials/AboutMePage") %>
+  <% } else if (page === 'orders') { %>
+    <%- include("./partials/My-OrdersPage") %>
+  <% } else if (page === 'contact') { %>
+    <%- include("./partials/contact") %>
+  <% } else if (page === 'My-complaints') { %>
+    <%- include("./partials/My-complaints") %>
+  <% } %>
+  </div>
+</body>
+

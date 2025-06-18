@@ -1,0 +1,55 @@
+<section class="Hero Section">
+ <div class="BackgroundContainer container-fluid">
+            <video autoplay muted loop playsinline src="https://www.mackintosh.com/cdn/shop/videos/c/vp/2504ecc9ef65489e9bd28b99739c86bd/2504ecc9ef65489e9bd28b99739c86bd.HD-1080p-7.2Mbps-42881968.mp4?v=0" class="Hero-Bg-Video"></video>
+            <div class="Hero-Text">
+                <h1>Spring--Summer 2025</h1>
+                <ul>
+                    <a href="#">Shop Men</a>
+                    <a href="#">Shop Women</a>
+                </ul>
+            </div>
+        </div>
+</section>
+
+<section class="NewProducts-Container">
+  <div class="row newinc">
+      <div class="NewIn col-md-6">
+          <img class= "NewIn-Img" src="https://www.mackintosh.com/cdn/shop/files/media-241.jpg?v=1740041180&width=1400" alt="">
+          <div class="New-In-Text">
+              <h1>New In: Spring Outwear</h1>
+          </div>
+      </div>
+      <div class="NewIn col-md-6">
+          <img class="NewIn-Img" src="https://www.mackintosh.com/cdn/shop/files/media-242.jpg?v=1740041296&width=1400" alt="">
+          <div class="New-In-Text">
+              <h1>New In: Spring Outwear</h1>
+          </div>
+      </div>
+      </div>
+</section>
+
+<section class="Products-Showcase">
+    <% products.forEach(product => { %>
+  <a href="/product/<%= product._id %>", class="product-link" >
+    <div class="product">
+    <div class="slider">
+      <% product.images.forEach(image => { %>
+        <img class="ProductImg" src="./uploads/<%=image%>" alt="<%= product.name %>">
+      <% }) %>
+    </div>
+    <div class="product-description">
+      <h2 class="product-title"><%= product.name %></h2>
+      <p class="product-price">Rs <%= product.price %></p>
+    </div>
+  </div>
+  </a>
+<% }) %>
+  
+</section>
+
+<section class="about-company">
+  <p class="about-text">Mackintosh Official: Hand-made Luxury Raincoats & Jackets</p>
+        <p >Since 1824 Mackintosh has been one of the world’s most influential coat makers. The DNA of the brand surrounds its craftsmanship, unequalled expertise in the manipulation of rubberized fabric and the constant evolution of its designs. The brand has become synonymous with its outerwear products, but also with the introduction of new collections, including the Mackintosh Mainline and collaborations with some of the world’s leading fashion houses.</p>
+</section>
+
+

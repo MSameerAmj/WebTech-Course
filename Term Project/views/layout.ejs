@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <% if (typeof cssFile !== 'undefined') { %>
+    <link rel="stylesheet" href="/stylesheets/<%= cssFile %>.css">
+    <% } %>
+</head>
+<body>
+
+    <div class="layout-container">
+      <div class="header">
+      <%- include('./partials/navbar') %>
+    </div>
+
+    
+    <div class="body-content">
+      <%- body %>
+    </div>
+    
+    
+    <div class="footer-content">
+      <%- include('./partials/footer') %>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+
+    <div id="cartBackdrop" class="cart-backdrop"></div>
+    <div id="cartDrawer" class="cart-drawer">
+    <div class="cart-header">
+    <h3>Your Cart</h3>
+    <button id="closeCart" class="close-btn">&times;</button>
+    </div>
+    <div class="cart-items">
+    <% let total = cart.cart_total || 0; %>
+<% (cart.items || []).forEach(item => { %>
+  <div class="cart-item">
+    <img src="../uploads/<%=item.image%>" alt="<%= item.name %>">
+    <div class="item-details">
+      <h4><%= item.name %></h4>
+      <p>PKR <%= item.price %> × <%= item.quantity %></p>
+    </div>
+  </div>
+<% }) %>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+  <strong>Total: PKR <%= total.toLocaleString() %></strong>
+</div>
+    <a href="/cart/checkout">
+      <button type="submit" class="checkout-btn">Checkout</button>
+    </a>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cartIcon = document.getElementById('cartIcon');
+    const cartDrawer = document.getElementById('cartDrawer');
+    const closeCart = document.getElementById('closeCart');
+    const backdrop = document.getElementById('cartBackdrop');
+    const body = document.body;
+
+    if (cartIcon && cartDrawer && closeCart && backdrop) {
+      cartIcon.addEventListener('click', () => {
+        cartDrawer.classList.add('open');
+        backdrop.classList.add('active');
+        body.style.overflow = 'hidden';
+      });
+
+      function closeDrawer() {
+        cartDrawer.classList.remove('open');
+        backdrop.classList.remove('active');
+        body.style.overflow = '';
+      }
+
+      closeCart.addEventListener('click', closeDrawer);
+      backdrop.addEventListener('click', closeDrawer);
+    } else {
+      console.warn("Cart drawer elements not found on this page");
+    }
+
+    
+  });
+</script>
+
+
+</body>
+
+
+</html>

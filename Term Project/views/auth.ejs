@@ -1,0 +1,19 @@
+<body>
+  <div class="Registeration-hero">
+  <div class="Registeration-container">
+  <div class="tab-nav">
+    <a href="/auth/login" class="<%= formType === 'login' ? 'active' : '' %>">Sign in</a>
+    <a href="/auth/register" class="<%= formType === 'register' ? 'active' : '' %>">Create account</a>
+    <a href="/auth/adminLogin" class="<%= formType === 'admin' ? 'active' : '' %>">Admin Login</a>
+  </div>
+
+  <% if (formType === 'login') { %>
+    <%- include("./partials/login-form") %>
+  <% } else if (formType === 'register') { %>
+    <%- include("./partials/register-form") %>
+  <% } else if (formType === 'admin') { %>
+    <%- include("./partials/admin-login-form") %>
+  <% } %>
+</div>
+</div>
+</body>

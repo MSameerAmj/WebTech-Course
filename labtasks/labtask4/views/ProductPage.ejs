@@ -1,0 +1,51 @@
+<div class="product-page">
+  <div class="product">
+    <div class="slider">
+      <% product.images.forEach(image => { %>
+        <img class="ProductImg" src="../uploads/<%=image %>" alt="<%= product.name %>">
+      <% }) %>
+    </div>
+  </div>
+  <div class="product-details">
+    <h2><%= product.name %></h2>
+    <p class="price">PKR <%= product.price %></p>
+    <p class="description"><%= product.description %></p>
+    <form action="/add-to-cart" method="POST">
+      <input type="hidden" name="productId" value="<%= product._id %>">
+      <button type="submit" class="add-btn" 
+                data-id="<%= product._id %>"
+                data-name="<%= product.name %>"
+                data-price="<%= product.price %>"
+                data-image="<%= product.images[0] %>">Add to Bag</button>
+    </form>
+  </div>
+</div>
+
+<!-- <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('add-btn')) {
+    const button = e.target;
+    const productId = button.dataset.id;
+    const name = button.dataset.name;
+    const price = button.dataset.price;
+    const image = button.dataset.image;
+
+    fetch('/add-to-cart', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ productId, name, price, image })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        alert("Added to bag!");
+      } else {
+        alert("Error adding to cart");
+      }
+    });
+  }
+});
+
+  });
+</script> -->

@@ -1,0 +1,24 @@
+<body>
+  <div class="admin-container">
+    <div class="sidebar">
+      <ul>
+        <li><a href="/admin/ListProducts" class="<%= page === 'ListProducts' ? 'active' : '' %>">All Products</a></li>
+        <li><a href="/admin/add-product" class="<%= page === 'add-product' ? 'active' : '' %>">Add Product</a></li>
+        <li><a href="/admin/all-orders" class="<%= page === 'all-orders' ? 'active' : '' %>">All order</a></li>
+        <li><a href="/admin/all-complaints" class="<%= page === 'all-complaints' ? 'active' : '' %>">All Complaints</a></li>
+        <li><form action="/auth/logout" method="GET"><button type="submit" class="logout-btn">Logout</button></form></li>
+      </ul>
+    </div>
+    <% if (page === 'ListProducts') { %>
+    <%- include("./partials/ListProducts") %>
+  <% } else if (page === 'add-product') { %>
+    <%- include("./partials/Add-product") %>
+  <% } else if (page === 'edit-product') { %>
+    <%- include("./partials/edit-product") %>
+  <% } else if (page === 'all-orders') { %>
+    <%- include("./partials/All-orders") %>
+  <% } else if (page === 'all-complaints') { %>
+    <%- include("./partials/all-complains") %>
+  <% } %>
+  </div>
+</body>

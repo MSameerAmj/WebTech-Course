@@ -1,0 +1,78 @@
+.product-page{
+    display: flex;
+    flex-direction: row;
+}
+.product{
+    position: relative;
+    width: 50%;
+    /* border: 5px solid red; */
+    /* border: 5px solid orange; */
+    
+}
+
+.slider {
+    position: relative;
+    display: flex;
+    grid-template-columns: repeat(3, 100%);
+    height: fit-content;
+    width: 100%;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Enables snap effect */
+    scroll-behavior: smooth;
+}
+
+.slider .ProductImg {
+    width: 100%;
+    /* object-fit: cover; */
+    scroll-snap-align: start;
+}
+
+.slider::-webkit-scrollbar{
+    height: 3px;
+}
+.slider::-webkit-scrollbar-thumb{
+    background: gray;
+}
+.slider::-webkit-scrollbar-track {
+    background: transparent; /* Hides default track */
+}
+
+.product-details {
+  flex: 1 1 40%;
+  max-width: 400px;
+  margin-top: 10%;
+  padding: 5%;
+}
+
+.product-details h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.product-details .price {
+  font-size: 22px;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.product-details .description {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.add-btn {
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: #333;
+}

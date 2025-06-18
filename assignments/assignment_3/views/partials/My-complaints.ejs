@@ -1,0 +1,15 @@
+<div class="my-complaints-container">
+  <h1>All Complaints</h1>
+
+  <% if (complaints.length === 0) { %>
+    <p>No complaints submitted yet.</p>
+  <% } else { %>
+    <% complaints.forEach(complaint => { %>
+      <div class="complaint-card">
+        <h3>Order ID: <%= complaint.orderId %></h3>
+        <p>Complain: <%= complaint.complain %></p>
+        <small>Submitted: <%= complaint.createdAt.toDateString() %></small>
+      </div>
+    <% }) %>
+  <% } %>
+</div>

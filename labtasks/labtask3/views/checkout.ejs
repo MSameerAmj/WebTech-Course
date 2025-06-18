@@ -1,0 +1,28 @@
+<body>
+  <div class="container">
+    <h1>Checkout</h1>
+
+    <% if (cart && cart.items && cart.items.length > 0) { %>
+      <% cart.items.forEach(item => { %>
+        <div class="cart-tile">
+          <img src="../uploads/<%=item.image%>" alt="<%= item.name %>">
+          <div class="cart-tile-details">
+            <h3><%= item.name %></h3>
+            <p>PKR <%= item.price %> × <%= item.quantity %></p>
+          </div>
+        </div>
+      <% }) %>
+
+      <h3>Total: PKR <%= cart.cart_total.toLocaleString() %></h3>
+
+      <form class="checkout-form" action="/cart/place-order" method="POST">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <textarea name="address" rows="4" placeholder="Delivery Address" required></textarea>
+        <button type="submit">Place Order</button>
+      </form>
+    <% } else { %>
+      <p>Your cart is empty.</p>
+    <% } %>
+  </div>
+</body>

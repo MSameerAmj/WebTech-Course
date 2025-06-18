@@ -1,0 +1,20 @@
+<div class="orders-container">
+    <h1 >My Orders</h1>
+  <% if (items.length > 0) { %>
+    <div class="orders-grid">
+      <% items.forEach(item => { %>
+        <div class="order-card">
+          <img src="../uploads/<%=item.image || '/placeholder.jpg' %>" alt="<%= item.name %>">
+          <h4><%= item.name %></h4>
+          <p>PKR <%= item.price %> × <%= item.quantity %></p>
+          <div class="order-meta">
+            Order ID: <%= item.orderId.toString().slice(-9) %><br>
+            Date: <%= new Date(item.orderDate).toLocaleDateString() %>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } else { %>
+    <p style="text-align:center;">You haven’t placed any orders yet.</p>
+  <% } %>
+  </div>

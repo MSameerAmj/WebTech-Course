@@ -1,0 +1,77 @@
+<form class="addProductForm" id="product-form">
+  <h2>Add Product</h2>
+
+  <div class="imagePreviewContainer" id="preview-container" style="display: flex; gap: 10px; flex-wrap: wrap;"></div>
+
+  <input type="file" id="imageInput" name="images" multiple required style="display: none;" accept="image/*">
+  <button type="button" class="addImageBtn" id="imagebutton">Add Picture</button>
+
+  <div>
+    <label>Product Name:</label>
+    <input type="text" name="name" id="name" required>
+  </div>
+
+  <div>
+    <label>Price:</label>
+    <input type="number" name="price" id="price" required>
+  </div>
+
+  <button type="submit">Add Product</button>
+</form>
+
+<script>
+    const form = document.getElementById("product-form");
+    document.getElementById('imagebutton').addEventListener('click', function() {
+        document.getElementById('imageInput').click();
+    });
+
+    document.getElementById('imageInput').addEventListener('change', function(e) {
+        const container = document.getElementById('preview-container');
+        container.innerHTML = '';
+
+    Array.from(e.target.files).forEach(file => {
+    const reader = new FileReader();
+    reader.onload = function(event) {
+      const img = document.createElement('img');
+      img.src = event.target.result;
+      img.style.width = '100px';
+      img.style.height = '100px';
+      img.style.objectFit = 'cover';
+      img.style.border = '1px solid #ccc';
+      container.appendChild(img);
+    }
+    reader.readAsDataURL(file);
+  });
+});
+
+    const previewContainer = document.getElementById("preview-container");
+    form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("name", document.getElementById("name").value);
+    formData.append("price", document.getElementById("price").value);
+    
+    const imagesInput = document.getElementById("imageInput");
+    const files = imagesInput.files;
+    for (let i = 0; i < files.length; i++) {
+      formData.append("images", files[i]);
+    }
+
+    const response = await fetch("/admin/add-product", {
+      method: "POST",
+      body: formData
+    });
+
+    
+    if (response.ok) {
+      alert("Product added successfully!");
+      form.reset(); 
+      previewContainer.innerHTML = ""; 
+    } else {
+      const errorText = await response.text();  // 👈 this reads the actual content
+      alert(errorText);
+    }
+  });
+</script>
+

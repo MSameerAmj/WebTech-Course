@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse nav-left me-0" id="navbarSupportedContent">
+      <ul class="navbar-nav me-0 mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#">Men</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Women</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Explore</a></li>
+      </ul>
+    </div>
+    <div class="position-absolute top-50 start-50 translate-middle">
+      <a class="navbar-brand logo" href="/">M A C K I N T O S H</a>
+    </div>
+
+    <li class="nav-right">
+      <a href="/">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </a>
+      <a href="<% 
+        if (typeof session !== 'undefined' && session.adminUser) { %>/admin/ListProducts<% 
+        } else if (typeof session !== 'undefined' && session.user) { %>/auth/profile<% 
+        } else { %>/auth/login<% } %>">
+        <i class="fa-regular fa-user" id="userIcon"></i>
+      </a>
+      
+      <i class="bi bi-cart", id="cartIcon"></i>
+      
+    </li>
+  </div>
+</nav>
+
+
